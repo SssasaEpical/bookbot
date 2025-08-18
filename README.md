@@ -1,2 +1,3 @@
-# Bookbot
-This bookbot is just an excersice done by Boot.Dev
+# bookbot
+
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
