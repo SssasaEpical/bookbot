@@ -1,16 +1,12 @@
+from stats import count_words
+from stats import count_characters
+from stats import path
 # This function retrieves the book
-path = "books/frankenstein.txt"
-
-def get_book_text(filepath):
-    with open(filepath) as f:
-        return f.read()
-
-def count_words():
-    book_text = get_book_text(path)
-    list_words = book_text.split()
-    return len(list_words)
 
 def main(path):
-    pass
+    print("============ BOOKBOT ============")
+    print(f"Analazing book found at {path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {count_words()} total words")
 
-print(f"{count_words()} words found in the document")
+main(path)
