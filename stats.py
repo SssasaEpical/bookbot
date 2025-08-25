@@ -1,21 +1,26 @@
-path = "books/frankenstein.txt"
-# Obtains contents from file
-def get_book_text(filepath):
-    with open(filepath) as f:
-        return f.read()
+def get_num_words(text):
+    words = text.split()
+    return len(words)
 
-def count_words():
-    book_text = get_book_text(path)
-    list_words = book_text.split()
-    return len(list_words)
 
-def count_characters():
-    characters_total = {}
-    book = get_book_text(path)
-    book = book.lower()
-    for characters in book:
-        if characters not in characters_total:
-            characters_total[characters] = 1
+def get_chars_dict(text):
+    chars = {}
+    for c in text:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
         else:
-            characters_total[characters] += 1
-    print(characters_total)
+            chars[lowered] = 1
+    return chars
+
+
+def sort_on(d):
+    return d["num"]
+
+
+def chars_dict_to_sorted_list(num_chars_dict):
+    sorted_list = []
+    for ch in num_chars_dict:
+        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
